@@ -1,5 +1,6 @@
 class Solution:
     def shortestDistance(self, wordsDict: List[str], word1: str, word2: str) -> int:
+        # could be optimized to not use hashmap as that holds N space
         seen = {}
         
         for i in range(len(wordsDict)):
@@ -13,6 +14,5 @@ class Solution:
             for j in seen[word2]:
                 if abs(i - j) < smallest:
                     smallest = abs(i - j)
-                    
         
         return smallest
