@@ -13,5 +13,7 @@ class Solution:
             for j in seen[word2]:
                 if abs(i - j) < smallest:
                     smallest = abs(i - j)
+                    if smallest == 1:
+                        return 1
         
         return smallest
