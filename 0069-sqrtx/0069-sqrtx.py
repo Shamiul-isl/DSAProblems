@@ -7,6 +7,7 @@ class Solution:
         mid = 0
         num = 0 
         while left <= right: # binary search for the square root
+            # you use left + (right - left) / 2 to avoid overflow issues if right and left are               big numbers
             mid = left + (right - left) // 2 # find the middle element
             num = mid * mid
             if num > x:
