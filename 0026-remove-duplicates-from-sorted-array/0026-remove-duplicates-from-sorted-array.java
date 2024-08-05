@@ -8,6 +8,7 @@ class Solution {
         boolean changed = false;
 
         for (int j = i + 1; j < nums.length; j++) {
+            // You dont need changed because if we increment i and change value when i and j are 1 element apart, we essentially set j to itself
           // if (!changed) {
           //   if (nums[i] != nums[j]) 
           //     i++;
