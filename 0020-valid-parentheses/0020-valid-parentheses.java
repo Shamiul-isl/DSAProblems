@@ -8,8 +8,7 @@ class Solution {
             } else {
                 if (stack.isEmpty()) {
                     return false;
-                }
-                if (cur == ')' && stack.pop() != '(') {
+                } else if (cur == ')' && stack.pop() != '(') {
                     return false;
                 } else if (cur == ']' && stack.pop() != '[') {
                     return false;
