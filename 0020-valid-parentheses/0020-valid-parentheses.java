@@ -6,13 +6,7 @@ class Solution {
             if (cur == '(' || cur == '[' || cur == '{'){
                 stack.push(cur);
             } else {
-                if (stack.isEmpty()) {
-                    return false;
-                } else if (cur == ')' && stack.pop() != '(') {
-                    return false;
-                } else if (cur == ']' && stack.pop() != '[') {
-                    return false;
-                } else if (cur == '}' && stack.pop() != '{') {
+                if (stack.isEmpty() || (cur == ')' && stack.pop() != '(') || (cur == ']' && stack.pop() != '[') || (cur == '}' && stack.pop() != '{')) {
                     return false;
                 }
             }
