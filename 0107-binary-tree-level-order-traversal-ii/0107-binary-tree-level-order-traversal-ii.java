@@ -38,17 +38,7 @@ class Solution {
               queue.offer(cur.right);
           }
 
-          result.add(level);
-        }
-
-        int i = 0, j = result.size() - 1;
-
-        while (i < j) {
-          List<Integer> tmp = result.get(i);
-          result.set(i, result.get(j));
-          result.set(j, tmp);
-          i++;
-          j--;
+          result.add(0, level);
         }
         return result;
     }
