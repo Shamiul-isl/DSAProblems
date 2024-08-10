@@ -22,27 +22,41 @@ class Solution {
         }
         Queue<TreeNode> queue = new ArrayDeque<>();
         queue.offer(root);
-        while (true) {
-            List<TreeNode> children = new ArrayList<>();
+//         while (true) {
+//             int levelSize = 
+//             List<Integer> level = new ArrayList<>();
+//             while (!queue.isEmpty()) {
+//                 TreeNode cur = queue.remove();
+//                 level.add(cur.val);
+//                 if (cur.left != null)
+//                   children.add(cur.left);
+//                 if (cur.right != null)
+//                   children.add(cur.right);
+//             }
+            
+//             result.add(level);
+            
+//             for (TreeNode c: children) {
+//                 queue.offer(c);
+//             }
+            
+//             if (queue.isEmpty()) {
+//                 break;
+//             }
+//         }
+        
+        while (!queue.isEmpty()) {
+            int levelSize = queue.size();
             List<Integer> level = new ArrayList<>();
-            while (!queue.isEmpty()) {
-                TreeNode cur = queue.remove();
+            for (int i = 0; i < levelSize; i++) {
+                TreeNode cur = queue.poll();
                 level.add(cur.val);
                 if (cur.left != null)
-                  children.add(cur.left);
+                  queue.offer(cur.left);
                 if (cur.right != null)
-                  children.add(cur.right);
+                  queue.offer(cur.right);
             }
-            
             result.add(level);
-            
-            for (TreeNode c: children) {
-                queue.offer(c);
-            }
-            
-            if (queue.isEmpty()) {
-                break;
-            }
         }
         
         return result;
