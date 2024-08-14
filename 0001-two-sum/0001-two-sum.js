@@ -14,10 +14,6 @@ var twoSum = function(nums, target) {
         
         seen.set(nums[i], i);
         
-        // if (seen.has(nums[i])) {
-        //     seen.get(nums[i]).push(i);
-        // } else
-        //     seen.set(nums[i], [i]);
     }
     
 };
