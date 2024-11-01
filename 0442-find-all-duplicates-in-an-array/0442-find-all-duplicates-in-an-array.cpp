@@ -17,7 +17,7 @@ public:
             nums[i] = temp;
           }
         }
-        sort(dups.begin(), dups.end());
+        // sort(dups.begin(), dups.end());
         return dups;
     }
 };
