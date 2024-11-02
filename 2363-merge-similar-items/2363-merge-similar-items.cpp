@@ -19,7 +19,7 @@ public:
 
         auto i = seen.begin();
         while (i != seen.end()) {
-            vector<int> cur = { (*i)[0], (*i)[1]};
+            vector<int> cur = *i;
             while (true) {
                 std::advance(i, 1);
                 if (i == seen.end())
