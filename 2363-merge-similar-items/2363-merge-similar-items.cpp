@@ -22,11 +22,8 @@ public:
             vector<int> cur = *i;
             while (true) {
                 std::advance(i, 1);
-                if (i == seen.end())
+                if (i == seen.end() || (*i)[0] != cur[0])
                     break;
-                if ((*i)[0] != cur[0]) {
-                    break;
-                }
                 cur[1] += (*i)[1];
                 
             }
