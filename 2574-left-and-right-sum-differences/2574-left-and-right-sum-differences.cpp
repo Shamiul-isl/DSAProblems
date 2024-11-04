@@ -17,7 +17,6 @@ public:
             differenceArray[i] = abs(left - rightSum);
             left += nums[i];
         }
-        // TODO: Write your code here
         return differenceArray;
     }
 };
