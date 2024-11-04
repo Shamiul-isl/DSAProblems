@@ -13,8 +13,7 @@ public:
         int left = 0;
 
         for (int i = 0; i < nums.size(); i++) {
-            int rightSum = total - left - nums[i];
-            differenceArray[i] = abs(left - rightSum);
+            differenceArray[i] = abs(left - (total - left - nums[i]));
             left += nums[i];
         }
         return differenceArray;
