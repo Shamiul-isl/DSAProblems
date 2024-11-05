@@ -4,7 +4,7 @@ public:
         int maxLength = 0;
         int windowStart = 0;
         int currLength = 0;
-        map<int, int> seen;
+        unordered_map<int, int> seen;
 
         for (int i = 0; i < arr.size(); i++) {
             if (seen.count(arr[i]) > 0) {
