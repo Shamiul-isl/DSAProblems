@@ -4,7 +4,7 @@ public:
         stack<string> seen;
         string temp;
 
-        stringstream ss(path);
+        istringstream ss(path);
 
         while (getline(ss, temp, '/')) {
             if (temp == "..") {
@@ -13,10 +13,9 @@ public:
                 seen.push(temp);
             }
 
-            temp = "";
         }
         
-
+        temp = "";
         while (!seen.empty()) {
             temp = "/" + seen.top() + temp;
             seen.pop();
@@ -25,5 +24,6 @@ public:
         if (temp.size() == 0) return "/";
 
         return temp;
+        
     }
 };
