@@ -4,7 +4,7 @@ public:
         stack<string> seen;
         string temp;
 
-        stringstream ss(path);
+        istringstream ss(path);
 
         while (getline(ss, temp, '/')) {
             if (temp == "..") {
