@@ -10,11 +10,9 @@ public:
 
             while (end < arr.size()) {
               int cur = arr[i] + arr[start] + arr[end];
-              if (cur < target) 
-                  count++;
-              else
+              if (cur >= target)
                   break;
-              
+              count++; 
               end++;
             }
           }
