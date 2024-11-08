@@ -4,7 +4,6 @@ public:
         int result = 0;
 
         for (int i = 0; i < arr.size(); i++) {
-          vector<int> cur = {arr[i]};
           if (arr[i] < target) result++;
           int curProd = arr[i];
           for (int j = i + 1; j < arr.size(); j++) {
@@ -16,7 +15,6 @@ public:
             }
           }
         }
-        // TODO: Write your code here
         return result;
     }
 };
