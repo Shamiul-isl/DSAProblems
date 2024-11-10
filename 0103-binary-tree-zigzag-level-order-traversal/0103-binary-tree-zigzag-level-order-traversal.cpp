@@ -16,36 +16,31 @@ public:
         
         if (!root) return result;
 
-        deque<TreeNode*> queue;
-        queue.push_front(root);
-        int leftOrRight = 1;
+        queue<TreeNode*> queue;
+        queue.push(root);
+        int leftOrRight = 0;
 
         while (queue.size() > 0) {
           int curSize = queue.size();
-          vector<int> temp;
+          vector<int> temp(curSize);
 
           for (int i = 0; i < curSize; i++) {
-            TreeNode *cur;  
+            TreeNode *cur = queue.front();
+            queue.pop();
 
             if (leftOrRight == 0) {
-              cur = queue.back();
-              queue.pop_back();
-              if (cur->right) queue.push_front(cur->right);
-              if (cur->left) queue.push_front(cur->left);
+              temp[i] = cur->val;
             } else {
-              cur = queue.front();
-              queue.pop_front();              
-              if (cur->left) queue.push_back(cur->left);
-              if (cur->right) queue.push_back(cur->right);
+              temp[curSize - 1 - i] = cur->val;
             }
-            
-            temp.push_back(cur->val);
+
+            if (cur->left) queue.push(cur->left);
+            if (cur->right) queue.push(cur->right);  
           }
 
           result.push_back(temp);
           leftOrRight ^= 1;
         }
-        // TODO: Write your code here
 
         return result;
     }
