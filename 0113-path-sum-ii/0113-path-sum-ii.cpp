@@ -30,15 +30,15 @@ public:
       return total;
     }
 
-
+    if (cur->left) {
       vector<vector<int>> l = findPath(cur->left, res, sum, targetSum - cur->val);
       if (l.size() > 0) total.insert(total.end(), l.begin(), l.end());
+    }
 
-
-
+    if (cur->right) {
       vector<vector<int>> r = findPath(cur->right, res, sum, targetSum - cur->val);
       if (r.size() > 0) total.insert(total.end(), r.begin(), r.end());
-
+    }
 
     return total;
 
