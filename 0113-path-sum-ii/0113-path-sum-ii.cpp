@@ -12,13 +12,12 @@
 class Solution {
 public:
   vector<vector<int>> pathSum(TreeNode *root, int sum) {
-      vector<vector<int>> allpaths;
-      findPath(root, vector<int>(), sum, allpaths);
+    vector<vector<int>> allpaths;
+    findPath(root, vector<int>(), sum, allpaths);
     return allpaths;
   }
 
   void findPath(TreeNode *cur, vector<int> res, int targetSum, vector<vector<int>> &allpaths) {
-    vector<vector<int>> total;
     if (!cur) return;
 
     res.push_back(cur->val);
