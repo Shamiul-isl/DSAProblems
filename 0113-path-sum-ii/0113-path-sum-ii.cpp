@@ -22,22 +22,18 @@ public:
     int sum = cur->val + curSum;
     res.push_back(cur->val);
     
-    if (cur->left == nullptr && cur->right == nullptr) {
-      if (cur->val == targetSum) {
-        total.push_back(res);
-      }
+    if (cur->left == nullptr && cur->right == nullptr && cur->val == targetSum) {
+      total.push_back(res);
+    } else {
+        if (cur->left) {
+          vector<vector<int>> l = findPath(cur->left, res, sum, targetSum - cur->val);
+          if (l.size() > 0) total.insert(total.end(), l.begin(), l.end());
+        }
 
-      return total;
-    }
-
-    if (cur->left) {
-      vector<vector<int>> l = findPath(cur->left, res, sum, targetSum - cur->val);
-      if (l.size() > 0) total.insert(total.end(), l.begin(), l.end());
-    }
-
-    if (cur->right) {
-      vector<vector<int>> r = findPath(cur->right, res, sum, targetSum - cur->val);
-      if (r.size() > 0) total.insert(total.end(), r.begin(), r.end());
+        if (cur->right) {
+          vector<vector<int>> r = findPath(cur->right, res, sum, targetSum - cur->val);
+          if (r.size() > 0) total.insert(total.end(), r.begin(), r.end());
+        }
     }
 
     return total;
