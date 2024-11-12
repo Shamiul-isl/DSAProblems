@@ -27,16 +27,14 @@ public:
     } else {
         if (cur->left) {
           findPath(cur->left, res, targetSum - cur->val, allpaths);
-          // if (l.size() > 0) total.insert(total.end(), l.begin(), l.end());
         }
 
         if (cur->right) {
           findPath(cur->right, res, targetSum - cur->val, allpaths);
-          // if (r.size() > 0) total.insert(total.end(), r.begin(), r.end());
         }
     }
 
-    return;
+    // return;
 
   }
 };
