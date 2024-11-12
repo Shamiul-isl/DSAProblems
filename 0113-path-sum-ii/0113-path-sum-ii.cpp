@@ -12,31 +12,32 @@
 class Solution {
 public:
   vector<vector<int>> pathSum(TreeNode *root, int sum) {
-    return findPath(root, vector<int>(), 0, sum);
+      vector<vector<int>> allpaths;
+      findPath(root, vector<int>(), sum, allpaths);
+    return allpaths;
   }
 
-  vector<vector<int>> findPath(TreeNode *cur, vector<int> res, int curSum, int targetSum) {
+  void findPath(TreeNode *cur, vector<int> res, int targetSum, vector<vector<int>> &allpaths) {
     vector<vector<int>> total;
-    if (!cur) return total;
+    if (!cur) return;
 
-    int sum = cur->val + curSum;
     res.push_back(cur->val);
     
     if (cur->left == nullptr && cur->right == nullptr && cur->val == targetSum) {
-      total.push_back(res);
+      allpaths.push_back(res);
     } else {
         if (cur->left) {
-          vector<vector<int>> l = findPath(cur->left, res, sum, targetSum - cur->val);
-          if (l.size() > 0) total.insert(total.end(), l.begin(), l.end());
+          findPath(cur->left, res, targetSum - cur->val, allpaths);
+          // if (l.size() > 0) total.insert(total.end(), l.begin(), l.end());
         }
 
         if (cur->right) {
-          vector<vector<int>> r = findPath(cur->right, res, sum, targetSum - cur->val);
-          if (r.size() > 0) total.insert(total.end(), r.begin(), r.end());
+          findPath(cur->right, res, targetSum - cur->val, allpaths);
+          // if (r.size() > 0) total.insert(total.end(), r.begin(), r.end());
         }
     }
 
-    return total;
+    return;
 
   }
 };
