@@ -12,8 +12,6 @@
 class Solution {
 public:
   vector<vector<int>> pathSum(TreeNode *root, int sum) {
-    vector<vector<int>> allPaths;
-
     return findPath(root, vector<int>(), 0, sum);
   }
 
