@@ -20,12 +20,9 @@ public:
   vector<vector<int>> findPath(TreeNode *cur, vector<int> res, int curSum, int targetSum) {
     vector<vector<int>> total;
     if (!cur) return total;
-    // if (cur->val > targetSum) return total;
 
     int sum = cur->val + curSum;
-    // vector<vector<int>> total;
     res.push_back(cur->val);
-    // total.push_back(res);
     
     if (cur->left == nullptr && cur->right == nullptr) {
       if (cur->val == targetSum) {
