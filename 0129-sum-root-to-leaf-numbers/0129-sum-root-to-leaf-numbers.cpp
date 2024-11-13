@@ -20,7 +20,7 @@ public:
       void allSums(TreeNode *cur, int curDigits, int &total) {
         if (!cur) return;
 
-        int temp = stoi(to_string(curDigits) + to_string(cur->val));
+        int temp = 10 * curDigits + cur->val;
         if (!cur->left && !cur->right) {  
           total += temp;
         }
