@@ -12,7 +12,8 @@
 class Solution {
 public:
     bool isValidSequence(TreeNode* root, const vector<int>& arr) {
-        return findPathRecursive(root, 0, arr);
+        bool res = findPathRecursive(root, 0, arr);
+        return res;
     }
 
     bool findPathRecursive(TreeNode *cur, int index, const vector<int> &sequence) {
