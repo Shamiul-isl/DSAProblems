@@ -16,9 +16,9 @@ public:
         vector<int> seen;
         sumAllPaths(root, count, (long)targetSum, seen);
         return count;
-      }
-
-  void sumAllPaths(TreeNode *cur, int &count, long targetSum, vector<int> &seen) {
+    }
+    
+    void sumAllPaths(TreeNode *cur, int &count, long targetSum, vector<int> &seen) {
         if (!cur) return;
 
         seen.push_back(cur->val);
@@ -32,31 +32,15 @@ public:
             temp += seen[i];
             if (temp == 0) {
               count++;
-              // break;
             }
 
             i++;
         }
 
-//     if (targetSum == 0) {
-//       count++;
-//     } else {
-//       int temp = targetSum, i = 0, curSize = seen.size() - 1;
-//       while (i < curSize) {
-//         temp += seen[i];
-//         if (temp == 0) {
-//           count++;
-//           break;
-//         }
+        sumAllPaths(cur->left, count, targetSum, seen);
+        sumAllPaths(cur->right, count, targetSum, seen);
 
-//         i++;
-//       }
-//     }
+        seen.pop_back();
 
-    sumAllPaths(cur->left, count, targetSum, seen);
-    sumAllPaths(cur->right, count, targetSum, seen);
-
-    seen.pop_back();
-
-  }
+    }
 };
