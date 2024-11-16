@@ -12,11 +12,12 @@ public:
 
             while (!dfs.empty()) {
                 bool added = false;
+                vector<int> cur = dfs.top();
                 for (int j = 0; j < dfs.top().size(); j++) {
                     if (j == curIndex) {
-                        (dfs.top())[j] = 0;
-                    } else if ((dfs.top())[j] == 1){
-                        (dfs.top())[j] = 0;
+                        cur[j] = 0;
+                    } else if (cur[j] == 1){
+                        cur[j] = 0;
                         isConnected[j][curIndex] = 0;
                         if (seen.count(j) > 0) continue;
                         dfs.push(isConnected[j]);
